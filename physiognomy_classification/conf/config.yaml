@@ -1,0 +1,34 @@
+training:
+  project_name: physiognomy
+  train_name: vit-1
+  seed: 1702
+  epochs: 50
+  batch: 4
+  lr: 3e-6
+  model_path: ${hydra:run.dir}/weights
+  wandb_path: ${hydra:run.dir}/wandb
+  save_best_of: 3
+  checkpoint_monitor: val_loss
+  early_stopping_patience: 10
+
+model:
+  name: vit
+  in_channels: 3
+  image_size: 224
+  patch_size: 16
+  layers: 12
+  heads: 4
+  embedding_dim: 768
+  mlp_ratio: 4
+  num_output_classes: 5
+  norm_type: postnorm
+  dropout: 0.1
+  qkv_bias: false
+
+data:
+  train_data_dir: dataset/train/faces
+  valid_data_dir: dataset/val/faces
+  test_data_dir: dataset/test/faces
+  train_labels_pickle: dataset/train/annotation_training.pkl
+  valid_labels_pickle: dataset/val/annotation_validation.pkl
+  test_labels_pickle: dataset/test/annotation_test.pkl

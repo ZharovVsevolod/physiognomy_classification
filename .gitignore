@@ -1,0 +1,5 @@
+dataset/
+physiognomy_classification/__pycache__/
+.env
+physiognomy_classification/models/__pycache__/
+outputs/
