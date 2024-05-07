@@ -46,7 +46,7 @@ def main(cfg: Params) -> None:
 
     checkpoint = ModelCheckpoint(
         dirpath = cfg.training.model_path,
-        filename = "epoch_{epoch}-{val_loss:.2f}",
+        filename = "epoch_{epoch}-{val_loss:.4f}",
         save_top_k = cfg.training.save_best_of,
         monitor = cfg.training.checkpoint_monitor
     )
@@ -60,7 +60,7 @@ def main(cfg: Params) -> None:
         devices = 1,
         logger = wandb_log,
         callbacks = [checkpoint, lr_monitor, early_stop],
-        fast_dev_run = 5
+        # fast_dev_run = 5
     )
     trainer.fit(model = model, datamodule = dm)
 

@@ -1,25 +1,25 @@
 training:
   project_name: physiognomy
-  train_name: vit-1
+  train_name: mini-vit
   seed: 1702
-  epochs: 50
-  batch: 4
+  epochs: 16
+  batch: 64
   lr: 3e-6
   model_path: ${hydra:run.dir}/weights
   wandb_path: ${hydra:run.dir}/wandb
   save_best_of: 3
   checkpoint_monitor: val_loss
-  early_stopping_patience: 10
+  early_stopping_patience: 4
 
 model:
   name: vit
   in_channels: 3
   image_size: 224
   patch_size: 16
-  layers: 12
-  heads: 4
-  embedding_dim: 768
-  mlp_ratio: 4
+  layers: 6
+  heads: 2
+  embedding_dim: 512
+  mlp_ratio: 2
   num_output_classes: 5
   norm_type: postnorm
   dropout: 0.1

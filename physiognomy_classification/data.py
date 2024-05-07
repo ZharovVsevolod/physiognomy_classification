@@ -120,6 +120,8 @@ class ChalearnDataModule(L.LightningDataModule):
                 transform = self.test_transform
             )
             print("Stage `fit` is set")
+            print(f"Train len is {len(self.train_dataset)}")
+            print(f"Val len is {len(self.val_dataset)}")
 
         if stage == "test" or stage is None:
             test_annotations = pickle.load(open(self.test_labels_pickle, "rb" ), encoding="latin1")
@@ -130,6 +132,7 @@ class ChalearnDataModule(L.LightningDataModule):
                 transform = self.test_transform
             )
             print("Stage `test` is set")
+            print(f"Test len is {len(self.test_dataset)}")
 
     def train_dataloader(self) -> TRAIN_DATALOADERS:
         return DataLoader(
