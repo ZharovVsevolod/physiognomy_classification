@@ -21,6 +21,9 @@ onnx = "^1.16.0"
 onnxruntime = "^1.17.3"
 onnxscript = "^0.1.0.dev20240507"
 onnxruntime-gpu = "^1.17.1"
+torchvision = "^0.18.0"
+ipython = "^8.24.0"
+cmake = "^3.29.2"
 
 
 [[tool.poetry.source]]
